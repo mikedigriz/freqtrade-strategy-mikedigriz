@@ -6,12 +6,15 @@ from freqtrade.strategy import (DecimalParameter, IStrategy, IntParameter)
 
 
 # this strat buy deep and sell up and it's not smart sorry
-# u or gain profit or just hodl(when drowdown)
-# i fixed some false signal, thank EMA(200)
-# when long drowdown, some time u get only sell_profit_offset! Because get false sell signal bellow buy price.
+# u or gain profit or just hodl(when drawdown)
+# i fixed some of false signal, thank EMA(200)
+# when long drawdown, some time u get only sell_profit_offset! Because get false sell signal bellow buy price.
 # but u have no stop-loss and sell only profit
 
-# lets plot:
+# Do Backtesting first
+# freqtrade backtesting -s smart_money_strategy --timerange 20210601- -i 1h -p DOT/USDT
+
+# Lets plot:
 # freqtrade plot-dataframe -s smart_money_strategy --timerange 20210601- -i 1h -p DOT/USDT --indicators1 ema_200 --indicators2 cmf mfi
 
 # params hyper-optable, just use class smart_money_strategy_hyperopt
@@ -25,7 +28,7 @@ class smart_money_strategy(IStrategy):
     }
 
     # Stoploss:
-    stoploss = -99
+    stoploss = -1
     # Optimal timeframe for the strategy
     timeframe = '1h'
     sell_profit_only = True
@@ -75,7 +78,7 @@ class smart_money_strategy_hyperopt(IStrategy):
     }
 
     # Stoploss:
-    stoploss = -99
+    stoploss = -1
     # Optimal timeframe for the strategy
     timeframe = '1h'
     sell_profit_only = True
