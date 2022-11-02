@@ -25,6 +25,6 @@ then
     done
     echo Freqtrade-bots in session $SESS_NAME are closed!
 else
-   echo Look's like like you don't have running session with name $SESS_NAME
+   echo Look's like you don't have running session with name $SESS_NAME
    exit 0
 fi
