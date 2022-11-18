@@ -1,3 +1,20 @@
+"""
+this strat buy deep and sell up and it's not smart sorry
+u or gain profit or just hodl(when drawdown)
+i fixed some of false signal, thank EMA(200)
+when long drawdown, some time u get only sell_profit_offset! Because get false sell signal bellow buy price.
+but u have no stop-loss and sell only profit
+
+Do Backtesting first
+freqtrade backtesting -s SmartMoneyStrategy --timerange 20210601- -i 1h -p DOT/USDT
+
+Lets plot:
+freqtrade plot-dataframe -s SmartMoneyStrategy --timerange 20210601- -i 1h -p DOT/USDT --indicators1 ema_200 --indicators2 cmf mfi
+
+Params hyper-optable, just use class SmartMoneyStrategyHyperopt
+freqtrade hyperopt --hyperopt-loss SharpeHyperOptLoss --strategy SmartMoneyStrategyHyperopt --spaces buy sell --timerange 20210601- --dry-run-wallet 160 --stake 12 -i 1h -e 1000
+"""
+
 import numpy
 import talib.abstract as ta
 from pandas import DataFrame
@@ -5,23 +22,7 @@ from technical.indicators import chaikin_money_flow
 from freqtrade.strategy import (DecimalParameter, IStrategy, IntParameter)
 
 
-# this strat buy deep and sell up and it's not smart sorry
-# u or gain profit or just hodl(when drawdown)
-# i fixed some of false signal, thank EMA(200)
-# when long drawdown, some time u get only sell_profit_offset! Because get false sell signal bellow buy price.
-# but u have no stop-loss and sell only profit
-
-# Do Backtesting first
-# freqtrade backtesting -s smart_money_strategy --timerange 20210601- -i 1h -p DOT/USDT
-
-# Lets plot:
-# freqtrade plot-dataframe -s smart_money_strategy --timerange 20210601- -i 1h -p DOT/USDT --indicators1 ema_200 --indicators2 cmf mfi
-
-# params hyper-optable, just use class smart_money_strategy_hyperopt
-# freqtrade hyperopt --hyperopt-loss SharpeHyperOptLoss --strategy smart_money_strategy_hyperopt --spaces buy sell --timerange 20210601- --dry-run-wallet 160 --stake 12 -i 1h -e 1000
-
-
-class smart_money_strategy(IStrategy):
+class SmartMoneyStrategy(IStrategy):
     # Minimal ROI designed for the strategy.
     minimal_roi = {
         "0": 10
@@ -71,7 +72,7 @@ class smart_money_strategy(IStrategy):
 
 
 # FOR HYPEROPT
-class smart_money_strategy_hyperopt(IStrategy):
+class SmartMoneyStrategyHyperopt(IStrategy):
     # ROI table:
     minimal_roi = {
         "0": 10
