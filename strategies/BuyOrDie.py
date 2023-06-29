@@ -31,9 +31,9 @@ class BuyOrDie(IStrategy):
     trailing_stop_positive_offset = 0.364
     trailing_only_offset_is_reached = True
     timeframe = '5m'
-    use_sell_signal = False
+    use_exit_signal = False
     exit_profit_only = False
-    ignore_roi_if_buy_signal = True
+    ignore_roi_if_entry_signal = True
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         dataframe['hma_20'] = qtpylib.hull_moving_average(dataframe['close'], window=20)
