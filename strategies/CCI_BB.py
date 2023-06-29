@@ -24,7 +24,7 @@ class CCI_BB(IStrategy):
 
     stoploss = -1
     timeframe = '5m'
-    sell_profit_only = False
+    exit_profit_only = False
 
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
