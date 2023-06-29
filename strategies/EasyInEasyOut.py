@@ -26,7 +26,7 @@ class EasyInEasyOut(IStrategy):
 
     timeframe = '1m'
 
-    sell_profit_only = True
+    exit_profit_only = True
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         dataframe['hma_20'] = qtpylib.hull_moving_average(dataframe['close'], window=20)
