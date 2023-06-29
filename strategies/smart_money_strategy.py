@@ -2,7 +2,7 @@
 this strat buy deep and sell up and it's not smart sorry
 u or gain profit or just hodl(when drawdown)
 i fixed some of false signal, thank EMA(200)
-when long drawdown, some time u get only sell_profit_offset! Because get false sell signal bellow buy price.
+when long drawdown, some time u get only exit_profit_offset! Because get false sell signal bellow buy price.
 but u have no stop-loss and sell only profit
 
 Do Backtesting first
@@ -32,8 +32,8 @@ class SmartMoneyStrategy(IStrategy):
     stoploss = -1
     # Optimal timeframe for the strategy
     timeframe = '1h'
-    sell_profit_only = True
-    sell_profit_offset = 0.01
+    exit_profit_only = True
+    exit_profit_offset = 0.01
 
     # enumeration of indicators
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
@@ -82,8 +82,8 @@ class SmartMoneyStrategyHyperopt(IStrategy):
     stoploss = -1
     # Optimal timeframe for the strategy
     timeframe = '1h'
-    sell_profit_only = True
-    sell_profit_offset = 0.01
+    exit_profit_only = True
+    exit_profit_offset = 0.01
 
     # buy params
     buy_mfi = IntParameter(20, 60, default=35, space="buy")
