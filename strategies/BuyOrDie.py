@@ -32,7 +32,7 @@ class BuyOrDie(IStrategy):
     trailing_only_offset_is_reached = True
     timeframe = '5m'
     use_sell_signal = False
-    sell_profit_only = False
+    exit_profit_only = False
     ignore_roi_if_buy_signal = True
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
