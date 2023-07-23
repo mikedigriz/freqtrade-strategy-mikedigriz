@@ -7,7 +7,7 @@ from freqtrade.strategy.interface import IStrategy
 
 class RSI_BB(IStrategy):
     ticker_interval = '1d'
-
+    timeframe = '15m'
     # ROI table:
     minimal_roi = {
         "0": 0.85,

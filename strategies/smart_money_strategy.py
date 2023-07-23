@@ -31,7 +31,7 @@ class SmartMoneyStrategy(IStrategy):
     # Stoploss:
     stoploss = -1
     # Optimal timeframe for the strategy
-    timeframe = '1h'
+    timeframe = '30m'
     exit_profit_only = True
     exit_profit_offset = 0.01
 
