@@ -16,7 +16,7 @@ freqtrade backtesting -s Strategy_name --timerange 20200101-20230222 --dry-run-w
  "ADA/USDT", "DOT/USDT", "BAT/USDT", "SOL/USDT", "ETC/USDT", "CELO/USDT", "AUDIO/USDT", "ATOM/USDT", "MINA/USDT", "BNB/USDT", "ETH/USDT"
 </details>
 
-Backtesting with data from 2020-01-01 up to 2023-02-21 (1147 days) - Binance	Drawdown
+Backtesting with data from 2020-01-01 up to 2023-02-21 (1147 days) - Binance
 |   Strategy |   Entries |   Avg Profit % |   Cum Profit % |   Tot Profit USDT |   Tot Profit % |    Avg Duration |   Win  Draw  Loss  Win% |             Drawdown |
 |------------|-----------|----------------|----------------|-------------------|----------------|-----------------|-------------------------|----------------------|
 | FisherHull |       310 |          19.22 |        5958.42 |           1491.880|          149.19| 35 days, 5:20:00|  136      0    174 43.9 | 358.168 USDT  13.40% |
