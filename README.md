@@ -32,11 +32,11 @@ Backtesting with data from 2020-01-01 up to 2023-02-21 (1147 days) - Binance
 
 
 ## Strategy review
-- [Smart money](https://www.dutchalgotrading.com/strategies/the-smart-money-trading-strategy/)
+- [Smart money](https://www.youtube.com/watch?v=HsigF3_R3S8)
 
 ## Links
 - [Bloom Algorithmic Trading](https://www.youtube.com/playlist?list=PLK_6xaeGngVBKfN6iqpUIwNy81AK2cySb) - For start
 - [Trading Strategy Guides](https://tradingstrategyguides.com/cryptocurrency-strategies/) - For learn and implementation TA strategy
-- [Freqtrade Backtesting Project](https://bt.robot.co.network/)
+- [Freqtrade Backtesting Project](https://strat.ninja)
 - [Dutch Crypto Dad](https://www.dutchalgotrading.com/)
 
