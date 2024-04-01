@@ -1,11 +1,21 @@
 #!/bin/bash
-# example script for start multiple Freqtrade bot's
 
-export WORK_DIR=/home/mikedigriz/github/freqtrade
-export FREQTRADE_VENV=/home/mikedigriz/github/freqtrade/venv/bin/activate
+export WORK_DIR=/home/digriz/github/freqtrade
+export FREQTRADE_VENV=/home/digriz/github/freqtrade/.env/bin/activate
+SESS_NAME='freqtrade_main'
+
+# Check if we already started
+tmux has-session -t $SESS_NAME 2>/dev/null
+SESS_EXIST=$?
+
+if [ $SESS_EXIST -eq 0 ]
+then
+   echo "Look's like you already have running session with name $SESS_NAME"
+   exit 0
+fi
 
 # PANE 0
-tmux new-sess -d -s freqtrade_main -c $WORK_DIR
+tmux new-sess -d -s $SESS_NAME -c $WORK_DIR
 tmux send-keys "source $FREQTRADE_VENV" 'C-m'
 tmux resize-pane -U 10
 tmux send-keys 'freqtrade trade -s HMA_val_down4_cci -c HMA_val_down4_cci_okx_config.json' 'C-m'
